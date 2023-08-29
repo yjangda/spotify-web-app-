@@ -14,10 +14,11 @@ class RoomComponent extends Component {
             showSettings: false,
         };
         this.roomCode = props.roomCode; // Assign the prop value to this.roomCode
-        this.getRoomDetails();
         this.leaveButtonPressed = this.leaveButtonPressed.bind(this); 
         this.updateShowSettings = this.updateShowSettings.bind(this);
         this.renderSettings = this.renderSettings.bind(this);
+        this.getRoomDetails = this.getRoomDetails.bind(this);
+        this.getRoomDetails();
     }
 
     getRoomDetails() {
@@ -79,7 +80,7 @@ class RoomComponent extends Component {
                         votesToSkip = {this.state.votesToSkip} 
                         guestCanPause = {this.state.guestCanPause} 
                         roomCode = {this.roomCode}
-                        updateCallBack = {() => {}}
+                        updateCallBack = {this.getRoomDetails()}
                     />
                 </Grid>
                 <Grid item xs = {12} align = "center">
